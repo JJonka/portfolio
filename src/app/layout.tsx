@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio",
+  title: "Joanna Jurasz - fullstack developer",
   description: "My personal portfolio",
 };
 
@@ -63,7 +63,8 @@ export default function RootLayout({
 
         <footer className="border-t border-border bg-surface">
           <div className="mx-auto max-w-5xl px-6 py-8 text-center text-sm text-muted">
-            &copy; {new Date().getFullYear()} Portfolio. All rights reserved.
+            &copy; {new Date().getFullYear()} Joanna Jurasz. All rights
+            reserved.
           </div>
         </footer>
       </body>
