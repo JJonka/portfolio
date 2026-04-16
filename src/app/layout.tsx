@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
+import Image from "next/image";
+import { Nav } from "../components/Nav";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,13 +20,6 @@ export const metadata: Metadata = {
   description: "My personal portfolio",
 };
 
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/experience", label: "Experience" },
-  { href: "/contact", label: "Contact" },
-];
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -37,25 +32,20 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <header className="sticky top-0 z-50 border-b border-border bg-surface/80 backdrop-blur">
-          <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+          <nav className="mx-auto flex max-w-5xl items-center justify-between py-4">
             <Link
               href="/"
-              className="text-lg font-bold tracking-tight text-accent"
+              className="text-lg font-bold tracking-tight text-accent flex flex-row items-center gap-4 justify-center"
             >
-              J. Jurasz
+              <Image src={"/Logo.svg"} alt="Logo" width={40} height={40} />
+              <h2 className="flex flex-col">
+                <span className="text-accent">Joanna Jurasz</span>
+                <small className="text-foreground text-xs">
+                  FULLSTACK DEVELOPER
+                </small>
+              </h2>
             </Link>
-            <ul className="flex gap-6 text-sm font-medium">
-              {navLinks.map(({ href, label }) => (
-                <li key={href}>
-                  <Link
-                    href={href}
-                    className="text-muted transition-colors hover:text-foreground"
-                  >
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <Nav />
           </nav>
         </header>
 

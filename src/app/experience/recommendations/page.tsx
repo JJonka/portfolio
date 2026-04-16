@@ -1,5 +1,5 @@
-import AnchorSidebar from "../anchor-sidebar";
-import { db } from "@/app/lib/db";
+import { SectionSidebar } from "../../../components/SectionSidebar";
+import { db } from "../../../lib/db";
 
 function slugify(text: string) {
   return text
@@ -18,7 +18,7 @@ export default async function RecommendationsPage() {
 
   return (
     <>
-      <AnchorSidebar items={anchorItems} />
+      <SectionSidebar items={anchorItems} />
       <div className="min-w-0 flex-1">
         <h2 className="text-2xl font-semibold text-foreground">
           Recommendations

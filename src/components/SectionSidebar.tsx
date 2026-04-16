@@ -8,7 +8,7 @@ interface AnchorItem {
   label: string;
 }
 
-export default function AnchorSidebar({ items }: { items: AnchorItem[] }) {
+export const SectionSidebar = ({ items }: { items: AnchorItem[] }) => {
   const pathname = usePathname();
 
   const sections = [
@@ -66,4 +66,4 @@ export default function AnchorSidebar({ items }: { items: AnchorItem[] }) {
       </div>
     </aside>
   );
-}
+};

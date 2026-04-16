@@ -1,5 +1,5 @@
-import AnchorSidebar from "../anchor-sidebar";
-import { db } from "@/app/lib/db";
+import { SectionSidebar } from "../../../components/SectionSidebar";
+import { db } from "../../../lib/db";
 
 function slugify(text: string) {
   return text
@@ -26,13 +26,13 @@ export default async function WorkExperiencePage() {
 
   return (
     <>
-      <AnchorSidebar items={anchorItems} />
+      <SectionSidebar items={anchorItems} />
       <div className="min-w-0 flex-1">
         <h2 className="text-2xl font-semibold text-foreground">
           Work Experience
         </h2>
         <div className="mt-8 space-y-12">
-          {experiences.map((exp) => {
+          {experiences.toReversed().map((exp) => {
             const slug = slugify(exp.company);
             const technologies = exp.technologies
               ? exp.technologies.split(",").map((t) => t.trim())

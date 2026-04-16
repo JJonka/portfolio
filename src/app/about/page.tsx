@@ -1,4 +1,4 @@
-import { db } from "@/app/lib/db";
+import { db } from "../../lib/db";
 
 export default async function AboutPage() {
   const profile = await db.profile.findFirst();
