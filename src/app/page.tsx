@@ -6,39 +6,40 @@ export default async function Home() {
   const profile = await db.profile.findFirst();
 
   return (
-    <div className="flex flex-row gap-10 mx-auto max-w-5xl px-6">
-      <section className="flex min-h-[70vh] basis-2/5 flex-col items-left justify-center text-left">
-        <h1 className="text-5xl font-bold tracking-tight text-foreground sm:text-6xl">
+    <div className="mx-auto flex max-w-5xl flex-col gap-10 px-6 lg:flex-row">
+      <section className="order-2 flex flex-col justify-center text-left lg:order-1 lg:min-h-[70vh] lg:basis-2/5">
+        <h1 className="text-foreground text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
           Hi, <br />
           <span className="text-accent">I&apos;m Joanna</span>
         </h1>
-        <p className="mt-6 max-w-2xl text-lg leading-8 text-muted">
+        <p className="text-muted mt-6 max-w-2xl text-lg leading-8">
           {profile?.headline ??
             "A fullstack developer - hungry for good food and building web applications."}
         </p>
 
-        <div className="mt-10 flex gap-4">
+        <div className="mt-10 flex flex-wrap gap-4">
           <Link
             href="/contact"
-            className="rounded-full bg-accent px-6 py-3 text-sm font-semibold text-background shadow-sm transition-colors hover:bg-foreground"
+            className="bg-accent text-background hover:bg-blue rounded-full px-6 py-3 text-sm font-semibold shadow-sm transition-colors"
           >
             Get in Touch
           </Link>
           <Link
             href="/experience"
-            className="rounded-full border border-border px-6 py-3 text-sm font-semibold text-foreground shadow-sm transition-colors hover:bg-surface"
+            className="border-border text-foreground hover:text-blue rounded-full border px-6 py-3 text-sm font-semibold shadow-sm transition-colors"
           >
             View Experience
           </Link>
         </div>
       </section>
-      <section className="flex basis-3/5 justify-end">
+      <section className="order-1 flex justify-center lg:order-2 lg:basis-3/5 lg:justify-end">
         <Image
           src={"/hero.svg"}
           alt="Profile Picture"
           width={1000}
           height={1000}
-          className="mt-6 mx-auto"
+          sizes="(max-width: 1024px) 100vw, 60vw"
+          className="mx-auto mt-6 max-w-sm md:max-w-md lg:max-w-none"
         />
       </section>
     </div>

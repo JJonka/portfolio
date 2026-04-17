@@ -20,7 +20,7 @@ export const SectionSidebar = ({ items }: { items: AnchorItem[] }) => {
     <aside className="hidden w-56 shrink-0 lg:block">
       <div className="sticky top-20 space-y-6">
         <nav>
-          <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted">
+          <h3 className="text-muted mb-2 text-xs font-semibold tracking-wider uppercase">
             Sections
           </h3>
           <ul className="space-y-1">
@@ -32,7 +32,7 @@ export const SectionSidebar = ({ items }: { items: AnchorItem[] }) => {
                     href={href}
                     className={`block rounded-md px-3 py-1.5 text-sm transition-colors ${
                       isActive
-                        ? "font-medium text-accent"
+                        ? "text-accent font-medium"
                         : "text-muted hover:text-foreground"
                     }`}
                   >
@@ -46,15 +46,15 @@ export const SectionSidebar = ({ items }: { items: AnchorItem[] }) => {
 
         {items.length > 0 && (
           <nav>
-            <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted">
+            <h3 className="text-muted mb-2 text-xs font-semibold tracking-wider uppercase">
               On this page
             </h3>
-            <ul className="space-y-1 border-l border-border">
+            <ul className="border-border space-y-1 border-l">
               {items.map(({ id, label }) => (
                 <li key={id}>
                   <a
                     href={`#${id}`}
-                    className="block border-l-2 border-transparent px-3 py-1 text-sm text-muted transition-colors hover:border-accent hover:text-foreground"
+                    className="text-muted hover:border-accent hover:text-foreground block border-l-2 border-transparent px-3 py-1 text-sm transition-colors"
                   >
                     {label}
                   </a>

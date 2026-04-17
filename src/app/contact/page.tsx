@@ -1,10 +1,10 @@
 export default function ContactPage() {
   return (
-    <div className="mx-auto max-w-5xl px-6 py-16">
-      <h1 className="text-4xl font-bold tracking-tight text-foreground">
+    <div className="mx-auto max-w-5xl px-6 py-10 md:py-16">
+      <h1 className="text-foreground text-3xl font-bold tracking-tight md:text-4xl">
         Contact
       </h1>
-      <p className="mt-4 max-w-2xl text-lg leading-8 text-muted">
+      <p className="text-muted mt-4 max-w-2xl text-lg leading-8">
         Have a question or want to work together? Send me a message and
         I&apos;ll get back to you as soon as possible.
       </p>
@@ -13,7 +13,7 @@ export default function ContactPage() {
         <div>
           <label
             htmlFor="name"
-            className="block text-sm font-medium text-foreground"
+            className="text-foreground block text-sm font-medium"
           >
             Name
           </label>
@@ -22,14 +22,14 @@ export default function ContactPage() {
             id="name"
             name="name"
             required
-            className="mt-1 block w-full rounded-lg border border-border bg-surface px-4 py-2.5 text-foreground shadow-sm focus:border-accent focus:ring-2 focus:ring-accent/20"
+            className="border-border bg-surface text-foreground focus:border-accent focus:ring-accent/20 mt-1 block w-full rounded-lg border px-4 py-2.5 shadow-sm focus:ring-2"
           />
         </div>
 
         <div>
           <label
             htmlFor="email"
-            className="block text-sm font-medium text-foreground"
+            className="text-foreground block text-sm font-medium"
           >
             Email
           </label>
@@ -38,14 +38,14 @@ export default function ContactPage() {
             id="email"
             name="email"
             required
-            className="mt-1 block w-full rounded-lg border border-border bg-surface px-4 py-2.5 text-foreground shadow-sm focus:border-accent focus:ring-2 focus:ring-accent/20"
+            className="border-border bg-surface text-foreground focus:border-accent focus:ring-accent/20 mt-1 block w-full rounded-lg border px-4 py-2.5 shadow-sm focus:ring-2"
           />
         </div>
 
         <div>
           <label
             htmlFor="message"
-            className="block text-sm font-medium text-foreground"
+            className="text-foreground block text-sm font-medium"
           >
             Message
           </label>
@@ -54,13 +54,13 @@ export default function ContactPage() {
             name="message"
             rows={5}
             required
-            className="mt-1 block w-full rounded-lg border border-border bg-surface px-4 py-2.5 text-foreground shadow-sm focus:border-accent focus:ring-2 focus:ring-accent/20"
+            className="border-border bg-surface text-foreground focus:border-accent focus:ring-accent/20 mt-1 block w-full rounded-lg border px-4 py-2.5 shadow-sm focus:ring-2"
           />
         </div>
 
         <button
           type="submit"
-          className="rounded-full bg-accent px-6 py-3 text-sm font-semibold text-background shadow-sm transition-colors hover:bg-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background"
+          className="bg-accent text-background hover:bg-foreground focus:ring-accent focus:ring-offset-background rounded-full px-6 py-3 text-sm font-semibold shadow-sm transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none"
         >
           Send Message
         </button>
