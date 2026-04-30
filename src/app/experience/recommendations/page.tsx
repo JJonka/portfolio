@@ -1,0 +1,67 @@
+import parse from "html-react-parser";
+import { ExperienceSectionNav } from "../../../components/ExperienceSectionNav";
+import { db } from "../../../lib/db";
+
+function slugify(text: string) {
+  return text
+    .toLowerCase()
+    .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9-]/g, "");
+}
+
+export default async function RecommendationsPage() {
+  const recommendations = await db.recommendation.findMany();
+
+  const anchorItems = recommendations
+    .map((rec) => ({
+      idx: rec.id,
+      id: slugify(rec.authorName),
+      label: rec.authorName,
+    }))
+    .sort((a, b) => b.idx - a.idx);
+
+  return (
+    <div className="flex gap-8">
+      <ExperienceSectionNav anchorItems={anchorItems} />
+      <div className="min-w-0 flex-1">
+        <h2 className="text-foreground text-2xl font-semibold">
+          Recommendations
+        </h2>
+        <div className="mt-8 space-y-10">
+          {recommendations
+            .sort((a, b) => b.id - a.id)
+            .map((rec) => {
+              const slug = slugify(rec.authorName);
+              return (
+                <section
+                  key={rec.id}
+                  id={slug}
+                  className="border-border scroll-mt-24 rounded-lg border p-6"
+                >
+                  <blockquote className="text-muted leading-7">
+                    &ldquo;{parse(rec.text)}&rdquo;
+                  </blockquote>
+                  <div className="mt-4 flex items-center gap-3">
+                    <div className="bg-surface text-accent flex h-10 w-10 items-center justify-center rounded-full text-sm font-semibold">
+                      {rec.authorName
+                        .split(" ")
+                        .map((n) => n[0])
+                        .join("")}
+                    </div>
+                    <div>
+                      <p className="text-foreground text-sm font-semibold">
+                        {rec.authorName}
+                      </p>
+                      <p className="text-muted text-sm">
+                        {rec.authorRole} at {rec.authorCompany}
+                      </p>
+                    </div>
+                  </div>
+                </section>
+              );
+            })}
+        </div>
+      </div>
+    </div>
+  );
+}
