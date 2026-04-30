@@ -8,7 +8,7 @@ export default function ExperienceLayout({
       <h1 className="text-foreground text-3xl font-bold tracking-tight md:text-4xl">
         Experience
       </h1>
-      <div className="mt-8 flex gap-10 md:mt-10">{children}</div>
+      <div className="mt-8 md:mt-10">{children}</div>
     </div>
   );
 }

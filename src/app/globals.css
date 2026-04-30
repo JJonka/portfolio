@@ -22,32 +22,35 @@
   --color-blue: var(--blue);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background:
-    radial-gradient(
-      ellipse 80% 50% at 50% 0%,
-      rgba(255, 255, 255, 0.15) 0%,
-      transparent 70%
-    ),
-    radial-gradient(
-      ellipse 50% 50% at 70% 60%,
-      rgba(255, 255, 255, 0.1) 0%,
-      transparent 60%
-    ),
-    radial-gradient(
-      ellipse 60% 60% at 20% 80%,
-      rgba(255, 255, 255, 0.08) 0%,
-      transparent 60%
-    );
-  pointer-events: none;
+.tech-logo {
+  color: var(--foreground);
+  transition: color 0.3s;
+}
+
+.group:hover .tech-logo {
+  color: var(--blue);
+}
+
+.tech-logo path,
+.tech-logo circle,
+.tech-logo rect,
+.tech-logo polygon,
+.tech-logo ellipse,
+.tech-logo polyline,
+.tech-logo line {
+  fill: currentColor;
+  stroke: var(--background);
+  stroke-width: 2px;
+  paint-order: stroke fill;
+  transition: stroke 0.3s;
 }

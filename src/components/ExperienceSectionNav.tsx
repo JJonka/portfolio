@@ -3,22 +3,26 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+const sections = [
+  { href: "/experience/work", label: "Work Experience" },
+  { href: "/experience/recommendations", label: "Recommendations" },
+];
+
 interface AnchorItem {
   id: string;
   label: string;
 }
 
-export const SectionSidebar = ({ items }: { items: AnchorItem[] }) => {
+export const ExperienceSectionNav = ({
+  anchorItems = [],
+}: {
+  anchorItems?: AnchorItem[];
+}) => {
   const pathname = usePathname();
 
-  const sections = [
-    { href: "/experience/work", label: "Work Experience" },
-    { href: "/experience/recommendations", label: "Recommendations" },
-  ];
-
   return (
-    <aside className="hidden w-56 shrink-0 lg:block">
-      <div className="sticky top-20 space-y-6">
+    <aside className="hidden w-48 shrink-0 lg:block">
+      <div className="sticky top-20 flex flex-col gap-8">
         <nav>
           <h3 className="text-muted mb-2 text-xs font-semibold tracking-wider uppercase">
             Sections
@@ -43,14 +47,13 @@ export const SectionSidebar = ({ items }: { items: AnchorItem[] }) => {
             })}
           </ul>
         </nav>
-
-        {items.length > 0 && (
+        {anchorItems.length > 0 && (
           <nav>
             <h3 className="text-muted mb-2 text-xs font-semibold tracking-wider uppercase">
               On this page
             </h3>
             <ul className="border-border space-y-1 border-l">
-              {items.map(({ id, label }) => (
+              {anchorItems.map(({ id, label }) => (
                 <li key={id}>
                   <a
                     href={`#${id}`}
