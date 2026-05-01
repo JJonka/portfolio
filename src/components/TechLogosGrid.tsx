@@ -49,14 +49,24 @@ const svgsGrid = () => {
   );
 
   return (
-    <div className="mt-15 mb-15 flex flex-col items-center gap-15">
-      {rows.map(({ slice }, i) => (
-        <div key={i} className="flex justify-center gap-15">
-          {slice.map(({ Icon, label }) => (
-            <TechIcon key={label} icon={Icon} tooltipText={label} />
-          ))}
-        </div>
-      ))}
+    <div className="mb-15 mt-15">
+      {/* Mobile: natural wrap */}
+      <div className="flex flex-wrap justify-center gap-6 lg:hidden">
+        {TECH_LOGOS.map(({ Icon, label }) => (
+          <TechIcon key={label} icon={Icon} tooltipText={label} />
+        ))}
+      </div>
+
+      {/* Desktop: pyramid layout */}
+      <div className="hidden flex-col items-center gap-15 lg:flex">
+        {rows.map(({ slice }, i) => (
+          <div key={i} className="flex justify-center gap-15">
+            {slice.map(({ Icon, label }) => (
+              <TechIcon key={label} icon={Icon} tooltipText={label} />
+            ))}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

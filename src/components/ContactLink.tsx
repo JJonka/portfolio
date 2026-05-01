@@ -11,11 +11,8 @@ interface ContactLinkProps {
   description: string;
 }
 
-const tooltipClass =
-  "bg-surface border-border text-foreground pointer-events-none absolute -top-9 left-1/2 -translate-x-1/2 rounded border px-2 py-1 text-xs whitespace-nowrap opacity-0 transition-opacity group-hover/icon:opacity-100";
-
-const cardClass =
-  "group border-border bg-surface hover:border-accent flex flex-col rounded-xl border p-6 transition-colors";
+const btnClass =
+  "border-border text-foreground hover:border-accent  hover:text-accent flex w-fit items-center gap-3 rounded-lg border px-4 py-2.5 text-sm font-medium transition-colors";
 
 export function ContactLink({
   children,
@@ -26,43 +23,41 @@ export function ContactLink({
 }: ContactLinkProps) {
   const [copied, setCopied] = useState(false);
 
-  if (type === "email") {
-    const handleCopy = async () => {
-      await navigator.clipboard.writeText(href);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    };
-
-    return (
-      <button
-        onClick={handleCopy}
-        aria-label="Copy email address"
-        className={`${cardClass} w-full cursor-pointer text-left`}
-      >
-        <p className="text-muted flex-1 text-sm leading-6">{description}</p>
-        <div className="group/icon relative mt-6 w-fit self-center text-foreground transition-colors hover:text-blue">
-          {children}
-          <span className={tooltipClass}>
-            {copied ? "Copied!" : "Copy e-mail address"}
-          </span>
-        </div>
-      </button>
-    );
-  }
-
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={label ?? href}
-      className={cardClass}
-    >
+    <div className="border-border bg-surface hover:border-accent flex flex-col items-center rounded-xl border p-6 transition-colors">
       <p className="text-muted flex-1 text-sm leading-6">{description}</p>
-      <div className="group/icon relative mt-6 w-fit self-center text-foreground transition-colors hover:text-blue">
-        {children}
-        {label && <span className={tooltipClass}>Checkout my {label} profile</span>}
+
+      <div className="mt-6">
+        {type === "email" ? (
+          <>
+            <a href={`mailto:${href}`} className={`${btnClass} md:hidden`}>
+              {children}
+              <span>Send email</span>
+            </a>
+            <button
+              onClick={async () => {
+                await navigator.clipboard.writeText(href);
+                setCopied(true);
+                setTimeout(() => setCopied(false), 2000);
+              }}
+              className={`${btnClass} hidden cursor-pointer md:flex`}
+            >
+              {children}
+              <span>{copied ? "Copied!" : "Copy email"}</span>
+            </button>
+          </>
+        ) : (
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={btnClass}
+          >
+            {children}
+            <span>Go to my {label} profile</span>
+          </a>
+        )}
       </div>
-    </a>
+    </div>
   );
 }

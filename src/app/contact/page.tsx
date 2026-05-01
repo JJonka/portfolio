@@ -25,7 +25,7 @@ export default async function ContactPage() {
             type="email"
             description="If you'd like to talk about job opportunities or collaboration, feel free to reach out to me via e‑mail."
           >
-            <GmailIcon className="h-25 w-25" aria-hidden="true" />
+            <GmailIcon className="h-6 w-6" aria-hidden="true" />
           </ContactLink>
         )}
         {profile?.linkedIn && (
@@ -35,7 +35,7 @@ export default async function ContactPage() {
             label="LinkedIn"
             description="You can also visit my LinkedIn profile to see what I'm currently working on and what's been inspiring me lately."
           >
-            <LinkedInIcon className="h-25 w-25" aria-hidden="true" />
+            <LinkedInIcon className="h-6 w-6" aria-hidden="true" />
           </ContactLink>
         )}
         {profile?.github && (
@@ -45,14 +45,14 @@ export default async function ContactPage() {
             label="GitHub"
             description="And if you want to explore my code, experiments, and side projects, check out my GitHub account."
           >
-            <GitHubIcon className="h-25 w-25" aria-hidden="true" />
+            <GitHubIcon className="h-6 w-6" aria-hidden="true" />
           </ContactLink>
         )}
       </div>
 
       <div className="mt-17 flex flex-col items-center gap-5">
         <PinIcon className="text-foreground h-15 w-15" aria-hidden="true" />
-        <p className="text-muted text-lg">
+        <p className="text-muted text-md lg:text-lg">
           Home base: Żywiec. Remote reach: anywhere.
         </p>
       </div>
