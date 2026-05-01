@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-const allowEval = process.env.ALLOW_EVAL === "true";
+const allowEval = process.env.ENV === "DEV";
 
 const securityHeaders = [
   { key: "X-Frame-Options", value: "DENY" },
