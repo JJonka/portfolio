@@ -1,70 +1,61 @@
-export default function ContactPage() {
+import { db } from "../../lib/db";
+import { ContactLink } from "../../components/ContactLink";
+import GmailIcon from "../../components/svgs/gmail.svg";
+import LinkedInIcon from "../../components/svgs/linkedin.svg";
+import GitHubIcon from "../../components/svgs/github.svg";
+import PinIcon from "../../components/svgs/pin.svg";
+
+export default async function ContactPage() {
+  const profile = await db.profile.findFirst();
+
   return (
     <div className="mx-auto max-w-5xl px-6 py-10 md:py-16">
       <h1 className="text-foreground text-3xl font-bold tracking-tight md:text-4xl">
         Contact
       </h1>
       <p className="text-muted mt-4 max-w-2xl text-lg leading-8">
-        Have a question or want to work together? Send me a message and
-        I&apos;ll get back to you as soon as possible.
+        Feel free to reach out — I&apos;m always open to new opportunities and
+        conversations.
       </p>
 
-      <form className="mt-10 max-w-xl space-y-6">
-        <div>
-          <label
-            htmlFor="name"
-            className="text-foreground block text-sm font-medium"
-          >
-            Name
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            required
-            className="border-border bg-surface text-foreground focus:border-accent focus:ring-accent/20 mt-1 block w-full rounded-lg border px-4 py-2.5 shadow-sm focus:ring-2"
-          />
-        </div>
-
-        <div>
-          <label
-            htmlFor="email"
-            className="text-foreground block text-sm font-medium"
-          >
-            Email
-          </label>
-          <input
+      <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
+        {profile?.email && (
+          <ContactLink
+            href={profile.email}
             type="email"
-            id="email"
-            name="email"
-            required
-            className="border-border bg-surface text-foreground focus:border-accent focus:ring-accent/20 mt-1 block w-full rounded-lg border px-4 py-2.5 shadow-sm focus:ring-2"
-          />
-        </div>
-
-        <div>
-          <label
-            htmlFor="message"
-            className="text-foreground block text-sm font-medium"
+            description="If you'd like to talk about job opportunities or collaboration, feel free to reach out to me via e‑mail."
           >
-            Message
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            rows={5}
-            required
-            className="border-border bg-surface text-foreground focus:border-accent focus:ring-accent/20 mt-1 block w-full rounded-lg border px-4 py-2.5 shadow-sm focus:ring-2"
-          />
-        </div>
+            <GmailIcon className="h-25 w-25" aria-hidden="true" />
+          </ContactLink>
+        )}
+        {profile?.linkedIn && (
+          <ContactLink
+            href={profile.linkedIn}
+            type="link"
+            label="LinkedIn"
+            description="You can also visit my LinkedIn profile to see what I'm currently working on and what's been inspiring me lately."
+          >
+            <LinkedInIcon className="h-25 w-25" aria-hidden="true" />
+          </ContactLink>
+        )}
+        {profile?.github && (
+          <ContactLink
+            href={profile.github}
+            type="link"
+            label="GitHub"
+            description="And if you want to explore my code, experiments, and side projects, check out my GitHub account."
+          >
+            <GitHubIcon className="h-25 w-25" aria-hidden="true" />
+          </ContactLink>
+        )}
+      </div>
 
-        <button
-          type="submit"
-          className="bg-accent text-background hover:bg-foreground focus:ring-accent focus:ring-offset-background rounded-full px-6 py-3 text-sm font-semibold shadow-sm transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none"
-        >
-          Send Message
-        </button>
-      </form>
+      <div className="mt-17 flex flex-col items-center gap-5">
+        <PinIcon className="text-foreground h-15 w-15" aria-hidden="true" />
+        <p className="text-muted text-lg">
+          Home base: Żywiec. Remote reach: anywhere.
+        </p>
+      </div>
     </div>
   );
 }
