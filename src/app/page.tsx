@@ -53,6 +53,7 @@ export default async function Home() {
             alt="Profile Picture"
             width={500}
             height={500}
+            loading="eager"
             sizes="(max-width: 1024px) 80vw, 40vw"
             className="mx-auto mt-6 max-w-sm md:max-w-md lg:max-w-none"
           />

@@ -30,7 +30,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col">
+      <body className="flex min-h-full flex-col overflow-x-hidden">
         <header className="border-border bg-surface/80 sticky top-0 z-50 border-b backdrop-blur">
           <nav className="relative mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
             <Logo />

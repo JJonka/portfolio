@@ -749,7 +749,10 @@ export const ProfileScalarFieldEnum = {
   bio: 'bio',
   location: 'location',
   avatarUrl: 'avatarUrl',
-  createdAt: 'createdAt'
+  createdAt: 'createdAt',
+  email: 'email',
+  linkedIn: 'linkedIn',
+  github: 'github'
 } as const
 
 export type ProfileScalarFieldEnum = (typeof ProfileScalarFieldEnum)[keyof typeof ProfileScalarFieldEnum]

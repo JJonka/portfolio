@@ -1,5 +1,6 @@
 import parse from "html-react-parser";
 import { ExperienceSectionNav } from "../../../components/ExperienceSectionNav";
+import { ExpandableText } from "../../../components/ExpandableText";
 import { db } from "../../../lib/db";
 
 function slugify(text: string) {
@@ -21,7 +22,7 @@ export default async function RecommendationsPage() {
     .sort((a, b) => b.idx - a.idx);
 
   return (
-    <div className="flex gap-8">
+    <div className="flex flex-col gap-6 lg:flex-row lg:gap-8">
       <ExperienceSectionNav anchorItems={anchorItems} />
       <div className="min-w-0 flex-1">
         <h2 className="text-foreground text-2xl font-semibold">
@@ -39,7 +40,9 @@ export default async function RecommendationsPage() {
                   className="border-border scroll-mt-24 rounded-lg border p-6"
                 >
                   <blockquote className="text-muted leading-7">
-                    &ldquo;{parse(rec.text)}&rdquo;
+                    <ExpandableText>
+                      &ldquo;{parse(rec.text)}&rdquo;
+                    </ExpandableText>
                   </blockquote>
                   <div className="mt-4 flex items-center gap-3">
                     <div className="bg-surface text-accent flex h-10 w-10 items-center justify-center rounded-full text-sm font-semibold">

@@ -42,6 +42,9 @@ export type ProfileMinAggregateOutputType = {
   location: string | null
   avatarUrl: string | null
   createdAt: Date | null
+  email: string | null
+  linkedIn: string | null
+  github: string | null
 }
 
 export type ProfileMaxAggregateOutputType = {
@@ -52,6 +55,9 @@ export type ProfileMaxAggregateOutputType = {
   location: string | null
   avatarUrl: string | null
   createdAt: Date | null
+  email: string | null
+  linkedIn: string | null
+  github: string | null
 }
 
 export type ProfileCountAggregateOutputType = {
@@ -62,6 +68,9 @@ export type ProfileCountAggregateOutputType = {
   location: number
   avatarUrl: number
   createdAt: number
+  email: number
+  linkedIn: number
+  github: number
   _all: number
 }
 
@@ -82,6 +91,9 @@ export type ProfileMinAggregateInputType = {
   location?: true
   avatarUrl?: true
   createdAt?: true
+  email?: true
+  linkedIn?: true
+  github?: true
 }
 
 export type ProfileMaxAggregateInputType = {
@@ -92,6 +104,9 @@ export type ProfileMaxAggregateInputType = {
   location?: true
   avatarUrl?: true
   createdAt?: true
+  email?: true
+  linkedIn?: true
+  github?: true
 }
 
 export type ProfileCountAggregateInputType = {
@@ -102,6 +117,9 @@ export type ProfileCountAggregateInputType = {
   location?: true
   avatarUrl?: true
   createdAt?: true
+  email?: true
+  linkedIn?: true
+  github?: true
   _all?: true
 }
 
@@ -199,6 +217,9 @@ export type ProfileGroupByOutputType = {
   location: string | null
   avatarUrl: string | null
   createdAt: Date
+  email: string | null
+  linkedIn: string | null
+  github: string | null
   _count: ProfileCountAggregateOutputType | null
   _avg: ProfileAvgAggregateOutputType | null
   _sum: ProfileSumAggregateOutputType | null
@@ -232,6 +253,9 @@ export type ProfileWhereInput = {
   location?: Prisma.StringNullableFilter<"Profile"> | string | null
   avatarUrl?: Prisma.StringNullableFilter<"Profile"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Profile"> | Date | string
+  email?: Prisma.StringNullableFilter<"Profile"> | string | null
+  linkedIn?: Prisma.StringNullableFilter<"Profile"> | string | null
+  github?: Prisma.StringNullableFilter<"Profile"> | string | null
 }
 
 export type ProfileOrderByWithRelationInput = {
@@ -242,6 +266,9 @@ export type ProfileOrderByWithRelationInput = {
   location?: Prisma.SortOrderInput | Prisma.SortOrder
   avatarUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  email?: Prisma.SortOrderInput | Prisma.SortOrder
+  linkedIn?: Prisma.SortOrderInput | Prisma.SortOrder
+  github?: Prisma.SortOrderInput | Prisma.SortOrder
 }
 
 export type ProfileWhereUniqueInput = Prisma.AtLeast<{
@@ -255,6 +282,9 @@ export type ProfileWhereUniqueInput = Prisma.AtLeast<{
   location?: Prisma.StringNullableFilter<"Profile"> | string | null
   avatarUrl?: Prisma.StringNullableFilter<"Profile"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Profile"> | Date | string
+  email?: Prisma.StringNullableFilter<"Profile"> | string | null
+  linkedIn?: Prisma.StringNullableFilter<"Profile"> | string | null
+  github?: Prisma.StringNullableFilter<"Profile"> | string | null
 }, "id">
 
 export type ProfileOrderByWithAggregationInput = {
@@ -265,6 +295,9 @@ export type ProfileOrderByWithAggregationInput = {
   location?: Prisma.SortOrderInput | Prisma.SortOrder
   avatarUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  email?: Prisma.SortOrderInput | Prisma.SortOrder
+  linkedIn?: Prisma.SortOrderInput | Prisma.SortOrder
+  github?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.ProfileCountOrderByAggregateInput
   _avg?: Prisma.ProfileAvgOrderByAggregateInput
   _max?: Prisma.ProfileMaxOrderByAggregateInput
@@ -283,6 +316,9 @@ export type ProfileScalarWhereWithAggregatesInput = {
   location?: Prisma.StringNullableWithAggregatesFilter<"Profile"> | string | null
   avatarUrl?: Prisma.StringNullableWithAggregatesFilter<"Profile"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Profile"> | Date | string
+  email?: Prisma.StringNullableWithAggregatesFilter<"Profile"> | string | null
+  linkedIn?: Prisma.StringNullableWithAggregatesFilter<"Profile"> | string | null
+  github?: Prisma.StringNullableWithAggregatesFilter<"Profile"> | string | null
 }
 
 export type ProfileCreateInput = {
@@ -292,6 +328,9 @@ export type ProfileCreateInput = {
   location?: string | null
   avatarUrl?: string | null
   createdAt?: Date | string
+  email?: string | null
+  linkedIn?: string | null
+  github?: string | null
 }
 
 export type ProfileUncheckedCreateInput = {
@@ -302,6 +341,9 @@ export type ProfileUncheckedCreateInput = {
   location?: string | null
   avatarUrl?: string | null
   createdAt?: Date | string
+  email?: string | null
+  linkedIn?: string | null
+  github?: string | null
 }
 
 export type ProfileUpdateInput = {
@@ -311,6 +353,9 @@ export type ProfileUpdateInput = {
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  linkedIn?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  github?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ProfileUncheckedUpdateInput = {
@@ -321,6 +366,9 @@ export type ProfileUncheckedUpdateInput = {
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  linkedIn?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  github?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ProfileCreateManyInput = {
@@ -331,6 +379,9 @@ export type ProfileCreateManyInput = {
   location?: string | null
   avatarUrl?: string | null
   createdAt?: Date | string
+  email?: string | null
+  linkedIn?: string | null
+  github?: string | null
 }
 
 export type ProfileUpdateManyMutationInput = {
@@ -340,6 +391,9 @@ export type ProfileUpdateManyMutationInput = {
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  linkedIn?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  github?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ProfileUncheckedUpdateManyInput = {
@@ -350,6 +404,9 @@ export type ProfileUncheckedUpdateManyInput = {
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  linkedIn?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  github?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ProfileCountOrderByAggregateInput = {
@@ -360,6 +417,9 @@ export type ProfileCountOrderByAggregateInput = {
   location?: Prisma.SortOrder
   avatarUrl?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  email?: Prisma.SortOrder
+  linkedIn?: Prisma.SortOrder
+  github?: Prisma.SortOrder
 }
 
 export type ProfileAvgOrderByAggregateInput = {
@@ -374,6 +434,9 @@ export type ProfileMaxOrderByAggregateInput = {
   location?: Prisma.SortOrder
   avatarUrl?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  email?: Prisma.SortOrder
+  linkedIn?: Prisma.SortOrder
+  github?: Prisma.SortOrder
 }
 
 export type ProfileMinOrderByAggregateInput = {
@@ -384,6 +447,9 @@ export type ProfileMinOrderByAggregateInput = {
   location?: Prisma.SortOrder
   avatarUrl?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  email?: Prisma.SortOrder
+  linkedIn?: Prisma.SortOrder
+  github?: Prisma.SortOrder
 }
 
 export type ProfileSumOrderByAggregateInput = {
@@ -420,6 +486,9 @@ export type ProfileSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   location?: boolean
   avatarUrl?: boolean
   createdAt?: boolean
+  email?: boolean
+  linkedIn?: boolean
+  github?: boolean
 }, ExtArgs["result"]["profile"]>
 
 export type ProfileSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -430,6 +499,9 @@ export type ProfileSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   location?: boolean
   avatarUrl?: boolean
   createdAt?: boolean
+  email?: boolean
+  linkedIn?: boolean
+  github?: boolean
 }, ExtArgs["result"]["profile"]>
 
 export type ProfileSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -440,6 +512,9 @@ export type ProfileSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   location?: boolean
   avatarUrl?: boolean
   createdAt?: boolean
+  email?: boolean
+  linkedIn?: boolean
+  github?: boolean
 }, ExtArgs["result"]["profile"]>
 
 export type ProfileSelectScalar = {
@@ -450,9 +525,12 @@ export type ProfileSelectScalar = {
   location?: boolean
   avatarUrl?: boolean
   createdAt?: boolean
+  email?: boolean
+  linkedIn?: boolean
+  github?: boolean
 }
 
-export type ProfileOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "headline" | "bio" | "location" | "avatarUrl" | "createdAt", ExtArgs["result"]["profile"]>
+export type ProfileOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "headline" | "bio" | "location" | "avatarUrl" | "createdAt" | "email" | "linkedIn" | "github", ExtArgs["result"]["profile"]>
 
 export type $ProfilePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Profile"
@@ -465,6 +543,9 @@ export type $ProfilePayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     location: string | null
     avatarUrl: string | null
     createdAt: Date
+    email: string | null
+    linkedIn: string | null
+    github: string | null
   }, ExtArgs["result"]["profile"]>
   composites: {}
 }
@@ -895,6 +976,9 @@ export interface ProfileFieldRefs {
   readonly location: Prisma.FieldRef<"Profile", 'String'>
   readonly avatarUrl: Prisma.FieldRef<"Profile", 'String'>
   readonly createdAt: Prisma.FieldRef<"Profile", 'DateTime'>
+  readonly email: Prisma.FieldRef<"Profile", 'String'>
+  readonly linkedIn: Prisma.FieldRef<"Profile", 'String'>
+  readonly github: Prisma.FieldRef<"Profile", 'String'>
 }
     
 

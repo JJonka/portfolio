@@ -21,52 +21,75 @@ export const ExperienceSectionNav = ({
   const pathname = usePathname();
 
   return (
-    <aside className="hidden w-48 shrink-0 lg:block">
-      <div className="sticky top-20 flex flex-col gap-8">
-        <nav>
-          <h3 className="text-muted mb-2 text-xs font-semibold tracking-wider uppercase">
-            Sections
-          </h3>
-          <ul className="space-y-1">
-            {sections.map(({ href, label }) => {
-              const isActive = pathname.startsWith(href);
-              return (
-                <li key={href}>
-                  <Link
-                    href={href}
-                    className={`block rounded-md px-3 py-1.5 text-sm transition-colors ${
-                      isActive
-                        ? "text-accent font-medium"
-                        : "text-muted hover:text-foreground"
-                    }`}
-                  >
-                    {label}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
-        {anchorItems.length > 0 && (
+    <>
+      {/* Mobile: horizontal section tabs */}
+      <div className="mb-6 flex gap-2 overflow-x-auto pb-1 lg:hidden">
+        {sections.map(({ href, label }) => {
+          const isActive = pathname.startsWith(href);
+          return (
+            <Link
+              key={href}
+              href={href}
+              className={`shrink-0 rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
+                isActive
+                  ? "bg-accent text-background"
+                  : "border-border text-muted hover:text-foreground border"
+              }`}
+            >
+              {label}
+            </Link>
+          );
+        })}
+      </div>
+
+      {/* Desktop: sidebar */}
+      <aside className="hidden w-48 shrink-0 lg:block">
+        <div className="sticky top-20 flex flex-col gap-8">
           <nav>
             <h3 className="text-muted mb-2 text-xs font-semibold tracking-wider uppercase">
-              On this page
+              Sections
             </h3>
-            <ul className="border-border space-y-1 border-l">
-              {anchorItems.map(({ id, label }) => (
-                <li key={id}>
-                  <a
-                    href={`#${id}`}
-                    className="text-muted hover:border-accent hover:text-foreground block border-l-2 border-transparent px-3 py-1 text-sm transition-colors"
-                  >
-                    {label}
-                  </a>
-                </li>
-              ))}
+            <ul className="space-y-1">
+              {sections.map(({ href, label }) => {
+                const isActive = pathname.startsWith(href);
+                return (
+                  <li key={href}>
+                    <Link
+                      href={href}
+                      className={`block rounded-md px-3 py-1.5 text-sm transition-colors ${
+                        isActive
+                          ? "text-accent font-medium"
+                          : "text-muted hover:text-foreground"
+                      }`}
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
-        )}
-      </div>
-    </aside>
+          {anchorItems.length > 0 && (
+            <nav>
+              <h3 className="text-muted mb-2 text-xs font-semibold tracking-wider uppercase">
+                On this page
+              </h3>
+              <ul className="border-border space-y-1 border-l">
+                {anchorItems.map(({ id, label }) => (
+                  <li key={id}>
+                    <a
+                      href={`#${id}`}
+                      className="text-muted hover:border-accent hover:text-foreground block border-l-2 border-transparent px-3 py-1 text-sm transition-colors"
+                    >
+                      {label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          )}
+        </div>
+      </aside>
+    </>
   );
 };

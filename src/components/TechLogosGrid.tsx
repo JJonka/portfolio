@@ -1,20 +1,20 @@
 import TechIcon from "./TechLogo";
-import ReactIcon from "./techLogos/react.svg";
-import NextjsIcon from "./techLogos/nextjs.svg";
-import TsIcon from "./techLogos/ts.svg";
-import TailwindIcon from "./techLogos/tailwind.svg";
-import ReduxIcon from "./techLogos/redux.svg";
-import StorybookIcon from "./techLogos/storybook.svg";
-import ExpressjsIcon from "./techLogos/expressjs.svg";
-import PostgresqlIcon from "./techLogos/postgresql.svg";
-import MongodbIcon from "./techLogos/mongodb.svg";
-import PrismaIcon from "./techLogos/prisma.svg";
-import StrapiIcon from "./techLogos/strapi.svg";
-import DockerIcon from "./techLogos/docker.svg";
-import GitIcon from "./techLogos/git.svg";
-import DigitaloceanIcon from "./techLogos/digitalocean.svg";
-import GithubCopilotIcon from "./techLogos/githubcopilot.svg";
-import ClaudeCodeIcon from "./techLogos/claude.svg";
+import ReactIcon from "./svgs/react.svg";
+import NextjsIcon from "./svgs/nextjs.svg";
+import TsIcon from "./svgs/ts.svg";
+import TailwindIcon from "./svgs/tailwind.svg";
+import ReduxIcon from "./svgs/redux.svg";
+import StorybookIcon from "./svgs/storybook.svg";
+import ExpressjsIcon from "./svgs/expressjs.svg";
+import PostgresqlIcon from "./svgs/postgresql.svg";
+import MongodbIcon from "./svgs/mongodb.svg";
+import PrismaIcon from "./svgs/prisma.svg";
+import StrapiIcon from "./svgs/strapi.svg";
+import DockerIcon from "./svgs/docker.svg";
+import GitIcon from "./svgs/git.svg";
+import DigitaloceanIcon from "./svgs/digitalocean.svg";
+import GithubCopilotIcon from "./svgs/githubcopilot.svg";
+import ClaudeCodeIcon from "./svgs/claude.svg";
 
 const TECH_LOGOS = [
   { Icon: ReactIcon, label: "React" },
@@ -37,7 +37,7 @@ const TECH_LOGOS = [
 
 const ROWS = [7, 5, 4];
 
-const TechLogosGrid = () => {
+const svgsGrid = () => {
   const rows = ROWS.reduce<{ slice: typeof TECH_LOGOS; start: number }[]>(
     (acc, count) => {
       const start = acc.length
@@ -49,16 +49,26 @@ const TechLogosGrid = () => {
   );
 
   return (
-    <div className="mt-15 mb-15 flex flex-col items-center gap-15">
-      {rows.map(({ slice }, i) => (
-        <div key={i} className="flex justify-center gap-15">
-          {slice.map(({ Icon, label }) => (
-            <TechIcon key={label} icon={Icon} tooltipText={label} />
-          ))}
-        </div>
-      ))}
+    <div className="mb-15 mt-15">
+      {/* Mobile: natural wrap */}
+      <div className="flex flex-wrap justify-center gap-6 lg:hidden">
+        {TECH_LOGOS.map(({ Icon, label }) => (
+          <TechIcon key={label} icon={Icon} tooltipText={label} />
+        ))}
+      </div>
+
+      {/* Desktop: pyramid layout */}
+      <div className="hidden flex-col items-center gap-15 lg:flex">
+        {rows.map(({ slice }, i) => (
+          <div key={i} className="flex justify-center gap-15">
+            {slice.map(({ Icon, label }) => (
+              <TechIcon key={label} icon={Icon} tooltipText={label} />
+            ))}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
 
-export default TechLogosGrid;
+export default svgsGrid;
