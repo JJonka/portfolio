@@ -4,7 +4,7 @@ A personal portfolio website built with Next.js, showcasing work experience, rec
 
 ---
 
-![Screenshot](./docs/screenshot.png)
+![alt text](./public/image.png)
 
 ---
 
