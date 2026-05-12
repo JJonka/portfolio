@@ -20,7 +20,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Joanna Jurasz — Fullstack Developer",
+    default: "Joanna Jurasz — fullstack Developer",
     template: "%s | Joanna Jurasz",
   },
   description:
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: "Joanna Jurasz",
-    title: "Joanna Jurasz — Fullstack Developer Building Modern Web Apps",
+    title: "Joanna Jurasz — fullstack Developer",
     description:
       "I'm a fullstack developer building modern web applications with clean code. Based in Poland, I'm open to remote work and new opportunities worldwide.",
     images: [
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Joanna Jurasz — Fullstack Developer Building Modern Web Apps",
+    title: "Joanna Jurasz — fullstack Developers",
     description:
       "I'm a fullstack developer building modern web applications with clean code. Based in Poland, I'm open to remote work and new opportunities worldwide.",
     images: ["/og-image.png"],

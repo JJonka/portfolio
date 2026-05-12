@@ -6,11 +6,13 @@ export const metadata: Metadata = {
   description:
     "I'd love to hear from you! Whether you have a project in mind or just want to say hi, reach out via email, LinkedIn, or GitHub — I'm always open to new conversations and opportunities.",
   openGraph: {
-    title: "Contact Joanna Jurasz — Fullstack Developer Available for Work",
+    title: "Contact Joanna Jurasz — fullstack Developer Available for Work",
     description:
       "I'd love to hear from you! Whether you have a project in mind or just want to say hi, reach out via email, LinkedIn, or GitHub — I'm always open to new conversations and opportunities.",
     url: "/contact",
-    images: [{ url: "/og-image.png", alt: "Joanna Jurasz — Fullstack Developer" }],
+    images: [
+      { url: "/og-image.png", alt: "Joanna Jurasz — Fullstack Developer" },
+    ],
   },
 };
 import { ContactLink } from "../../components/ContactLink";
