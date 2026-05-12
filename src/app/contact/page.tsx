@@ -4,11 +4,11 @@ import { db } from "../../lib/db";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with Joanna Jurasz — reach out via email, LinkedIn, or GitHub.",
+    "I'd love to hear from you! Whether you have a project in mind or just want to say hi, reach out via email, LinkedIn, or GitHub — I'm always open to new conversations and opportunities.",
   openGraph: {
-    title: "Contact | Joanna Jurasz",
+    title: "Contact Joanna Jurasz — Fullstack Developer Available for Work",
     description:
-      "Get in touch with Joanna Jurasz — reach out via email, LinkedIn, or GitHub.",
+      "I'd love to hear from you! Whether you have a project in mind or just want to say hi, reach out via email, LinkedIn, or GitHub — I'm always open to new conversations and opportunities.",
     url: "/contact",
     images: [{ url: "/og-image.png", alt: "Joanna Jurasz — Fullstack Developer" }],
   },

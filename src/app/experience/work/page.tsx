@@ -4,11 +4,11 @@ import parse from "html-react-parser";
 export const metadata: Metadata = {
   title: "Work Experience",
   description:
-    "Joanna Jurasz's professional work history — roles, companies, and technologies.",
+    "Here's a look at my professional journey — the roles I've held, the companies I've worked for, and the technologies I've used along the way.",
   openGraph: {
     title: "Work Experience | Joanna Jurasz",
     description:
-      "Professional work history — roles, companies, and technologies.",
+      "Here's a look at my professional journey — the roles I've held, the companies I've worked for, and the technologies I've used along the way.",
     url: "/experience/work",
     images: [{ url: "/og-image.png", alt: "Joanna Jurasz — Fullstack Developer" }],
   },

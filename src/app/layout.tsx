@@ -24,15 +24,15 @@ export const metadata: Metadata = {
     template: "%s | Joanna Jurasz",
   },
   description:
-    "Fullstack developer building modern web applications. Open to new opportunities and collaborations.",
+    "I'm a fullstack developer, building modern web applications with clean code. Based in Poland, I'm open to remote work and new opportunities worldwide.",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: siteUrl,
     siteName: "Joanna Jurasz",
-    title: "Joanna Jurasz — Fullstack Developer",
+    title: "Joanna Jurasz — Fullstack Developer Building Modern Web Apps",
     description:
-      "Fullstack developer building modern web applications. Open to new opportunities and collaborations.",
+      "I'm a fullstack developer building modern web applications with clean code. Based in Poland, I'm open to remote work and new opportunities worldwide.",
     images: [
       {
         url: "/og-image.png",
@@ -42,9 +42,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Joanna Jurasz — Fullstack Developer",
+    title: "Joanna Jurasz — Fullstack Developer Building Modern Web Apps",
     description:
-      "Fullstack developer building modern web applications. Open to new opportunities and collaborations.",
+      "I'm a fullstack developer building modern web applications with clean code. Based in Poland, I'm open to remote work and new opportunities worldwide.",
     images: ["/og-image.png"],
   },
 };

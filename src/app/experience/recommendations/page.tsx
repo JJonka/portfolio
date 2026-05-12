@@ -4,10 +4,11 @@ import parse from "html-react-parser";
 export const metadata: Metadata = {
   title: "Recommendations",
   description:
-    "Recommendations for Joanna Jurasz from colleagues and collaborators.",
+    "Curious what it's like to work with me? Here are recommendations from colleagues and collaborators who can speak to my work and character as a developer.",
   openGraph: {
     title: "Recommendations | Joanna Jurasz",
-    description: "Recommendations from colleagues and collaborators.",
+    description:
+      "Curious what it's like to work with me? Here are recommendations from colleagues and collaborators who can speak to my work and character as a developer.",
     url: "/experience/recommendations",
     images: [{ url: "/og-image.png", alt: "Joanna Jurasz — Fullstack Developer" }],
   },
