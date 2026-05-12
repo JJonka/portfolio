@@ -4,13 +4,13 @@ import Image from "next/image";
 import SectionSeparator from "../components/SectionSeparator";
 import TechLogosGrid from "../components/TechLogosGrid";
 
-function formatPeriod(start: Date, end: Date | null) {
+const formatPeriod = (start: Date, end: Date | null) => {
   const fmt = (d: Date) =>
     d.toLocaleDateString("en-US", { month: "short", year: "numeric" });
   return `${fmt(start)} – ${end ? fmt(end) : "Present"}`;
-}
+};
 
-export default async function Home() {
+const Home = async () => {
   const [profile, experiences, recommendations] = await Promise.all([
     db.profile.findFirst(),
     db.experience.findMany({ orderBy: { orderIndex: "desc" }, take: 2 }),
@@ -145,4 +145,6 @@ export default async function Home() {
       </section>
     </div>
   );
-}
+};
+
+export default Home;

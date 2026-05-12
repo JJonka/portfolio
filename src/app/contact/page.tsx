@@ -1,11 +1,25 @@
+import type { Metadata } from "next";
 import { db } from "../../lib/db";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description:
+    "Get in touch with Joanna Jurasz — reach out via email, LinkedIn, or GitHub.",
+  openGraph: {
+    title: "Contact | Joanna Jurasz",
+    description:
+      "Get in touch with Joanna Jurasz — reach out via email, LinkedIn, or GitHub.",
+    url: "/contact",
+    images: [{ url: "/og-image.png", alt: "Joanna Jurasz — Fullstack Developer" }],
+  },
+};
 import { ContactLink } from "../../components/ContactLink";
 import GmailIcon from "../../components/svgs/gmail.svg";
 import LinkedInIcon from "../../components/svgs/linkedin.svg";
 import GitHubIcon from "../../components/svgs/github.svg";
 import PinIcon from "../../components/svgs/pin.svg";
 
-export default async function ContactPage() {
+const ContactPage = async () => {
   const profile = await db.profile.findFirst();
 
   return (
@@ -58,4 +72,6 @@ export default async function ContactPage() {
       </div>
     </div>
   );
-}
+};
+
+export default ContactPage;

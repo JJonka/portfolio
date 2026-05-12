@@ -1,5 +1,7 @@
 import { redirect } from "next/navigation";
 
-export default function ExperiencePage() {
+const ExperiencePage = () => {
   redirect("/experience/work");
-}
+};
+
+export default ExperiencePage;

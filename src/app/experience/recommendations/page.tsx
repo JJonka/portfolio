@@ -1,16 +1,28 @@
+import type { Metadata } from "next";
 import parse from "html-react-parser";
+
+export const metadata: Metadata = {
+  title: "Recommendations",
+  description:
+    "Recommendations for Joanna Jurasz from colleagues and collaborators.",
+  openGraph: {
+    title: "Recommendations | Joanna Jurasz",
+    description: "Recommendations from colleagues and collaborators.",
+    url: "/experience/recommendations",
+    images: [{ url: "/og-image.png", alt: "Joanna Jurasz — Fullstack Developer" }],
+  },
+};
 import { ExperienceSectionNav } from "../../../components/ExperienceSectionNav";
 import { ExpandableText } from "../../../components/ExpandableText";
 import { db } from "../../../lib/db";
 
-function slugify(text: string) {
-  return text
+const slugify = (text: string) =>
+  text
     .toLowerCase()
     .replace(/\s+/g, "-")
     .replace(/[^a-z0-9-]/g, "");
-}
 
-export default async function RecommendationsPage() {
+const RecommendationsPage = async () => {
   const recommendations = await db.recommendation.findMany();
 
   const anchorItems = recommendations
@@ -67,4 +79,6 @@ export default async function RecommendationsPage() {
       </div>
     </div>
   );
-}
+};
+
+export default RecommendationsPage;

@@ -1,22 +1,35 @@
+import type { Metadata } from "next";
 import parse from "html-react-parser";
+
+export const metadata: Metadata = {
+  title: "Work Experience",
+  description:
+    "Joanna Jurasz's professional work history — roles, companies, and technologies.",
+  openGraph: {
+    title: "Work Experience | Joanna Jurasz",
+    description:
+      "Professional work history — roles, companies, and technologies.",
+    url: "/experience/work",
+    images: [{ url: "/og-image.png", alt: "Joanna Jurasz — Fullstack Developer" }],
+  },
+};
 import { ExperienceSectionNav } from "../../../components/ExperienceSectionNav";
 import { ExpandableText } from "../../../components/ExpandableText";
 import { db } from "../../../lib/db";
 
-function slugify(text: string) {
-  return text
+const slugify = (text: string) =>
+  text
     .toLowerCase()
     .replace(/\s+/g, "-")
     .replace(/[^a-z0-9-]/g, "");
-}
 
-function formatPeriod(start: Date, end: Date | null) {
+const formatPeriod = (start: Date, end: Date | null) => {
   const fmt = (d: Date) =>
     d.toLocaleDateString("en-US", { month: "short", year: "numeric" });
   return `${fmt(start)} – ${end ? fmt(end) : "Present"}`;
 }
 
-export default async function WorkExperiencePage() {
+const WorkExperiencePage = async () => {
   const experiences = await db.experience.findMany({
     orderBy: { orderIndex: "asc" },
   });
@@ -86,4 +99,6 @@ export default async function WorkExperiencePage() {
       </div>
     </div>
   );
-}
+};
+
+export default WorkExperiencePage;
