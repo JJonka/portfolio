@@ -15,16 +15,45 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+
 export const metadata: Metadata = {
-  title: "Joanna Jurasz - fullstack developer",
-  description: "My personal portfolio",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Joanna Jurasz — Fullstack Developer",
+    template: "%s | Joanna Jurasz",
+  },
+  description:
+    "Fullstack developer building modern web applications. Open to new opportunities and collaborations.",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteUrl,
+    siteName: "Joanna Jurasz",
+    title: "Joanna Jurasz — Fullstack Developer",
+    description:
+      "Fullstack developer building modern web applications. Open to new opportunities and collaborations.",
+    images: [
+      {
+        url: "/og-image.png",
+        alt: "Joanna Jurasz — Fullstack Developer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Joanna Jurasz — Fullstack Developer",
+    description:
+      "Fullstack developer building modern web applications. Open to new opportunities and collaborations.",
+    images: ["/og-image.png"],
+  },
 };
 
-export default function RootLayout({
+const RootLayout = ({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>) => {
   return (
     <html
       lang="en"
@@ -45,4 +74,6 @@ export default function RootLayout({
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;
