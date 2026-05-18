@@ -1,9 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
+import { unstable_cache } from "next/cache";
 import { db } from "../lib/db";
 
+const getProfile = unstable_cache(() => db.profile.findFirst(), ["profile"], {
+  revalidate: 3600,
+});
+
 const HeroSection = async () => {
-  const profile = await db.profile.findFirst();
+  const profile = await getProfile();
 
   return (
     <section className={"mx-auto flex max-w-5xl flex-col gap-10 px-6 lg:flex-row"}>
