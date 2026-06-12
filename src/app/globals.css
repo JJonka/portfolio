@@ -41,6 +41,29 @@ body {
   color: var(--blue);
 }
 
+.chat-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-scroll::-webkit-scrollbar-track {
+  background: var(--surface);
+  border-radius: 999px;
+}
+
+.chat-scroll::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 999px;
+}
+
+.chat-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+.chat-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) var(--surface);
+}
+
 .tech-logo path,
 .tech-logo circle,
 .tech-logo rect,

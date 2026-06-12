@@ -15,9 +15,11 @@ model Profile {
   location  String?
   avatarUrl String?
   createdAt DateTime @default(now())
-  email     String?
-  linkedIn  String?
-  github    String?
+  email                String?
+  linkedIn             String?
+  github               String?
+  assistantGuidelines  String?
+  availability            String?
 }
 
 model Experience {

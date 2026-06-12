@@ -13,6 +13,7 @@ A personal portfolio website built with Next.js, showcasing work experience, rec
 - **Home** — hero section, experience preview, recommendations preview, and a technologies grid
 - **Experience** — full work history timeline with tech tags, and LinkedIn recommendations
 - **Contact** — card-based contact section with email copy (desktop) / mailto (mobile), LinkedIn, and GitHub links
+- **AI Recruitment Assistant** — conversational assistant at `/assistant` powered by Claude (Anthropic). Streams responses in real time with markdown rendering. All context injected into the assistant — Joanna's name, headline, bio, location, availability, and behavioral guidelines — comes from the `Profile` database record. Update `Profile.assistantGuidelines` and `Profile.availability` via Prisma Studio to change how the assistant behaves without touching code.
 
 ## Tech stack
 
@@ -23,6 +24,7 @@ A personal portfolio website built with Next.js, showcasing work experience, rec
 | Styling   | Tailwind CSS v4                            |
 | Database  | PostgreSQL via Supabase                    |
 | ORM       | Prisma 7                                   |
+| AI        | Anthropic Claude (`claude-haiku-4-5`)      |
 | Fonts     | Geist (via `next/font`)                    |
 
 ## Getting started
@@ -41,6 +43,7 @@ Create a `.env` file in the project root:
 DATABASE_URL="postgresql://..."
 DIRECT_URL="postgresql://..."
 ENV="DEV"
+ANTHROPIC_API_KEY="sk-ant-..."
 ```
 
 **3. Generate the Prisma client**
@@ -72,7 +75,7 @@ npx prisma studio         # Open database GUI
 
 | Model            | Description                                                            |
 | ---------------- | ---------------------------------------------------------------------- |
-| `Profile`        | Singleton row — name, headline, bio, location, email, LinkedIn, GitHub |
+| `Profile`        | Singleton row — name, headline, bio, location, availability, email, LinkedIn, GitHub, `assistantGuidelines` (controls AI assistant behavior) |
 | `Experience`     | Work history entries ordered by `orderIndex`                           |
 | `Recommendation` | Author, role, company, and quote                                       |
 
