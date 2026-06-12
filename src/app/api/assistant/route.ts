@@ -1,13 +1,45 @@
 import { NextRequest } from "next/server";
 import Anthropic from "@anthropic-ai/sdk";
+import { Ratelimit } from "@upstash/ratelimit";
+import { Redis } from "@upstash/redis";
 import { db } from "../../../lib/db";
 
 export const runtime = "nodejs";
 
+const ratelimit = new Ratelimit({
+  redis: Redis.fromEnv(),
+  limiter: Ratelimit.slidingWindow(10, "1 m"),
+});
+
+const MAX_MESSAGES = 20;
+const MAX_CHARS = 2000;
+
 type MessageParam = { role: "user" | "assistant"; content: string };
 
 export async function POST(req: NextRequest) {
+  const ip = req.headers.get("x-forwarded-for") ?? "unknown";
+  const { success } = await ratelimit.limit(ip);
+  if (!success) {
+    return new Response("Too many requests", { status: 429 });
+  }
+
   const { messages }: { messages: MessageParam[] } = await req.json();
+
+  if (!Array.isArray(messages) || messages.length === 0) {
+    return new Response("Invalid request", { status: 400 });
+  }
+
+  const safe = messages
+    .filter((m) => m.role === "user" || m.role === "assistant")
+    .slice(-MAX_MESSAGES)
+    .map((m) => ({ ...m, content: String(m.content).slice(0, MAX_CHARS) }));
+
+  const firstUser = safe.findIndex((m) => m.role === "user");
+  const validated = firstUser > 0 ? safe.slice(firstUser) : safe;
+
+  if (validated.length === 0) {
+    return new Response("Invalid request", { status: 400 });
+  }
 
   const [experiences, profile] = await Promise.all([
     db.experience.findMany({ orderBy: { orderIndex: "asc" } }),
@@ -53,7 +85,7 @@ ${profile?.assistantGuidelines ?? "No specific guidelines provided."}
     model: "claude-haiku-4-5",
     max_tokens: 1024,
     system: systemPrompt,
-    messages: messages as Anthropic.MessageParam[],
+    messages: validated as Anthropic.MessageParam[],
   });
 
   const encoder = new TextEncoder();
