@@ -13,7 +13,7 @@ A personal portfolio website built with Next.js, showcasing work experience, rec
 - **Home** — hero section, experience preview, recommendations preview, and a technologies grid
 - **Experience** — full work history timeline with tech tags, and LinkedIn recommendations
 - **Contact** — card-based contact section with email copy (desktop) / mailto (mobile), LinkedIn, and GitHub links
-- **AI Recruitment Assistant** — conversational assistant at `/assistant` powered by Claude (Anthropic). Streams responses in real time with markdown rendering. All context injected into the assistant — Joanna's name, headline, bio, location, availability, and behavioral guidelines — comes from the `Profile` database record. Update `Profile.assistantGuidelines` and `Profile.availability` via Prisma Studio to change how the assistant behaves without touching code.
+- **AI Recruitment Assistant** — conversational assistant at `/assistant` powered by Claude (Anthropic). Streams responses in real time with markdown rendering. All context injected into the assistant — Joanna's name, headline, bio, location, availability, and behavioral guidelines — comes from the `Profile` database record. Update `Profile.assistantGuidelines` and `Profile.availability` via Prisma Studio to change how the assistant behaves without touching code. The endpoint is rate-limited (10 requests/min per IP) via Upstash Redis to prevent API cost abuse.
 
 ## Tech stack
 
@@ -25,6 +25,7 @@ A personal portfolio website built with Next.js, showcasing work experience, rec
 | Database  | PostgreSQL via Supabase                    |
 | ORM       | Prisma 7                                   |
 | AI        | Anthropic Claude (`claude-haiku-4-5`)      |
+| Rate limiting | Upstash Redis (serverless)             |
 | Fonts     | Geist (via `next/font`)                    |
 
 ## Getting started
@@ -44,6 +45,8 @@ DATABASE_URL="postgresql://..."
 DIRECT_URL="postgresql://..."
 ENV="DEV"
 ANTHROPIC_API_KEY="sk-ant-..."
+UPSTASH_REDIS_REST_URL="https://..."
+UPSTASH_REDIS_REST_TOKEN="..."
 ```
 
 **3. Generate the Prisma client**
