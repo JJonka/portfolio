@@ -45,6 +45,8 @@ export type ProfileMinAggregateOutputType = {
   email: string | null
   linkedIn: string | null
   github: string | null
+  assistantGuidelines: string | null
+  availability: string | null
 }
 
 export type ProfileMaxAggregateOutputType = {
@@ -58,6 +60,8 @@ export type ProfileMaxAggregateOutputType = {
   email: string | null
   linkedIn: string | null
   github: string | null
+  assistantGuidelines: string | null
+  availability: string | null
 }
 
 export type ProfileCountAggregateOutputType = {
@@ -71,6 +75,8 @@ export type ProfileCountAggregateOutputType = {
   email: number
   linkedIn: number
   github: number
+  assistantGuidelines: number
+  availability: number
   _all: number
 }
 
@@ -94,6 +100,8 @@ export type ProfileMinAggregateInputType = {
   email?: true
   linkedIn?: true
   github?: true
+  assistantGuidelines?: true
+  availability?: true
 }
 
 export type ProfileMaxAggregateInputType = {
@@ -107,6 +115,8 @@ export type ProfileMaxAggregateInputType = {
   email?: true
   linkedIn?: true
   github?: true
+  assistantGuidelines?: true
+  availability?: true
 }
 
 export type ProfileCountAggregateInputType = {
@@ -120,6 +130,8 @@ export type ProfileCountAggregateInputType = {
   email?: true
   linkedIn?: true
   github?: true
+  assistantGuidelines?: true
+  availability?: true
   _all?: true
 }
 
@@ -220,6 +232,8 @@ export type ProfileGroupByOutputType = {
   email: string | null
   linkedIn: string | null
   github: string | null
+  assistantGuidelines: string | null
+  availability: string | null
   _count: ProfileCountAggregateOutputType | null
   _avg: ProfileAvgAggregateOutputType | null
   _sum: ProfileSumAggregateOutputType | null
@@ -256,6 +270,8 @@ export type ProfileWhereInput = {
   email?: Prisma.StringNullableFilter<"Profile"> | string | null
   linkedIn?: Prisma.StringNullableFilter<"Profile"> | string | null
   github?: Prisma.StringNullableFilter<"Profile"> | string | null
+  assistantGuidelines?: Prisma.StringNullableFilter<"Profile"> | string | null
+  availability?: Prisma.StringNullableFilter<"Profile"> | string | null
 }
 
 export type ProfileOrderByWithRelationInput = {
@@ -269,6 +285,8 @@ export type ProfileOrderByWithRelationInput = {
   email?: Prisma.SortOrderInput | Prisma.SortOrder
   linkedIn?: Prisma.SortOrderInput | Prisma.SortOrder
   github?: Prisma.SortOrderInput | Prisma.SortOrder
+  assistantGuidelines?: Prisma.SortOrderInput | Prisma.SortOrder
+  availability?: Prisma.SortOrderInput | Prisma.SortOrder
 }
 
 export type ProfileWhereUniqueInput = Prisma.AtLeast<{
@@ -285,6 +303,8 @@ export type ProfileWhereUniqueInput = Prisma.AtLeast<{
   email?: Prisma.StringNullableFilter<"Profile"> | string | null
   linkedIn?: Prisma.StringNullableFilter<"Profile"> | string | null
   github?: Prisma.StringNullableFilter<"Profile"> | string | null
+  assistantGuidelines?: Prisma.StringNullableFilter<"Profile"> | string | null
+  availability?: Prisma.StringNullableFilter<"Profile"> | string | null
 }, "id">
 
 export type ProfileOrderByWithAggregationInput = {
@@ -298,6 +318,8 @@ export type ProfileOrderByWithAggregationInput = {
   email?: Prisma.SortOrderInput | Prisma.SortOrder
   linkedIn?: Prisma.SortOrderInput | Prisma.SortOrder
   github?: Prisma.SortOrderInput | Prisma.SortOrder
+  assistantGuidelines?: Prisma.SortOrderInput | Prisma.SortOrder
+  availability?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.ProfileCountOrderByAggregateInput
   _avg?: Prisma.ProfileAvgOrderByAggregateInput
   _max?: Prisma.ProfileMaxOrderByAggregateInput
@@ -319,6 +341,8 @@ export type ProfileScalarWhereWithAggregatesInput = {
   email?: Prisma.StringNullableWithAggregatesFilter<"Profile"> | string | null
   linkedIn?: Prisma.StringNullableWithAggregatesFilter<"Profile"> | string | null
   github?: Prisma.StringNullableWithAggregatesFilter<"Profile"> | string | null
+  assistantGuidelines?: Prisma.StringNullableWithAggregatesFilter<"Profile"> | string | null
+  availability?: Prisma.StringNullableWithAggregatesFilter<"Profile"> | string | null
 }
 
 export type ProfileCreateInput = {
@@ -331,6 +355,8 @@ export type ProfileCreateInput = {
   email?: string | null
   linkedIn?: string | null
   github?: string | null
+  assistantGuidelines?: string | null
+  availability?: string | null
 }
 
 export type ProfileUncheckedCreateInput = {
@@ -344,6 +370,8 @@ export type ProfileUncheckedCreateInput = {
   email?: string | null
   linkedIn?: string | null
   github?: string | null
+  assistantGuidelines?: string | null
+  availability?: string | null
 }
 
 export type ProfileUpdateInput = {
@@ -356,6 +384,8 @@ export type ProfileUpdateInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   linkedIn?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   github?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  assistantGuidelines?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  availability?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ProfileUncheckedUpdateInput = {
@@ -369,6 +399,8 @@ export type ProfileUncheckedUpdateInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   linkedIn?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   github?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  assistantGuidelines?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  availability?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ProfileCreateManyInput = {
@@ -382,6 +414,8 @@ export type ProfileCreateManyInput = {
   email?: string | null
   linkedIn?: string | null
   github?: string | null
+  assistantGuidelines?: string | null
+  availability?: string | null
 }
 
 export type ProfileUpdateManyMutationInput = {
@@ -394,6 +428,8 @@ export type ProfileUpdateManyMutationInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   linkedIn?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   github?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  assistantGuidelines?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  availability?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ProfileUncheckedUpdateManyInput = {
@@ -407,6 +443,8 @@ export type ProfileUncheckedUpdateManyInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   linkedIn?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   github?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  assistantGuidelines?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  availability?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ProfileCountOrderByAggregateInput = {
@@ -420,6 +458,8 @@ export type ProfileCountOrderByAggregateInput = {
   email?: Prisma.SortOrder
   linkedIn?: Prisma.SortOrder
   github?: Prisma.SortOrder
+  assistantGuidelines?: Prisma.SortOrder
+  availability?: Prisma.SortOrder
 }
 
 export type ProfileAvgOrderByAggregateInput = {
@@ -437,6 +477,8 @@ export type ProfileMaxOrderByAggregateInput = {
   email?: Prisma.SortOrder
   linkedIn?: Prisma.SortOrder
   github?: Prisma.SortOrder
+  assistantGuidelines?: Prisma.SortOrder
+  availability?: Prisma.SortOrder
 }
 
 export type ProfileMinOrderByAggregateInput = {
@@ -450,6 +492,8 @@ export type ProfileMinOrderByAggregateInput = {
   email?: Prisma.SortOrder
   linkedIn?: Prisma.SortOrder
   github?: Prisma.SortOrder
+  assistantGuidelines?: Prisma.SortOrder
+  availability?: Prisma.SortOrder
 }
 
 export type ProfileSumOrderByAggregateInput = {
@@ -489,6 +533,8 @@ export type ProfileSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   email?: boolean
   linkedIn?: boolean
   github?: boolean
+  assistantGuidelines?: boolean
+  availability?: boolean
 }, ExtArgs["result"]["profile"]>
 
 export type ProfileSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -502,6 +548,8 @@ export type ProfileSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   email?: boolean
   linkedIn?: boolean
   github?: boolean
+  assistantGuidelines?: boolean
+  availability?: boolean
 }, ExtArgs["result"]["profile"]>
 
 export type ProfileSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -515,6 +563,8 @@ export type ProfileSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   email?: boolean
   linkedIn?: boolean
   github?: boolean
+  assistantGuidelines?: boolean
+  availability?: boolean
 }, ExtArgs["result"]["profile"]>
 
 export type ProfileSelectScalar = {
@@ -528,9 +578,11 @@ export type ProfileSelectScalar = {
   email?: boolean
   linkedIn?: boolean
   github?: boolean
+  assistantGuidelines?: boolean
+  availability?: boolean
 }
 
-export type ProfileOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "headline" | "bio" | "location" | "avatarUrl" | "createdAt" | "email" | "linkedIn" | "github", ExtArgs["result"]["profile"]>
+export type ProfileOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "headline" | "bio" | "location" | "avatarUrl" | "createdAt" | "email" | "linkedIn" | "github" | "assistantGuidelines" | "availability", ExtArgs["result"]["profile"]>
 
 export type $ProfilePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Profile"
@@ -546,6 +598,8 @@ export type $ProfilePayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     email: string | null
     linkedIn: string | null
     github: string | null
+    assistantGuidelines: string | null
+    availability: string | null
   }, ExtArgs["result"]["profile"]>
   composites: {}
 }
@@ -979,6 +1033,8 @@ export interface ProfileFieldRefs {
   readonly email: Prisma.FieldRef<"Profile", 'String'>
   readonly linkedIn: Prisma.FieldRef<"Profile", 'String'>
   readonly github: Prisma.FieldRef<"Profile", 'String'>
+  readonly assistantGuidelines: Prisma.FieldRef<"Profile", 'String'>
+  readonly availability: Prisma.FieldRef<"Profile", 'String'>
 }
     
 
