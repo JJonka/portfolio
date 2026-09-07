@@ -82,7 +82,7 @@ ${profile?.assistantGuidelines ?? "No specific guidelines provided."}
   const client = new Anthropic();
 
   const stream = client.messages.stream({
-    model: "claude-haiku-4-5",
+    model: process.env.ANTHROPIC_MODEL ?? "claude-haiku-4-5-20251001",
     max_tokens: 1024,
     system: systemPrompt,
     messages: validated as Anthropic.MessageParam[],
