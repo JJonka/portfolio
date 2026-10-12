@@ -10,7 +10,12 @@ export const metadata: Metadata = {
     description:
       "Ask the AI Recruitment Assistant about Joanna's skills, experience, and availability.",
     url: "/assistant",
-    images: [{ url: "/og-image.png", alt: "Joanna Jurasz — Fullstack Developer" }],
+    images: [
+      {
+        url: "/og-image-assistant.png",
+        alt: "Joanna Jurasz — Fullstack Developer",
+      },
+    ],
   },
 };
 
